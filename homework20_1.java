@@ -19,14 +19,51 @@ public class homework20_1
 {
    public static void main(String[] args)
    {
-      //add your code here
-   
-   }
-   public static void deleteDuplicates(LinkedList llist)
-   {
-      //add your code here
+      Scanner sc = new Scanner(System.in);
+
+      LinkedList list = new LinkedList();
+
+      for (int i = 0; i < 5; i++) {
+         int num = sc.nextInt();
+         SortedInOrder(list, num);
+      }
+
+      deleteDuplicates(list);
+
+      System.out.println(list);   
    }
 
+    public static void SortedInOrder(LinkedList list, int value)
+   {
+      ListNode newNode = new ListNode(value);
+
+      if (list.head == null || value < list.head.value) {
+         newNode.next = list.head;
+         list.head = newNode;
+         return;
+      }
+
+      ListNode curr = list.head;
+      while (curr.next != null && curr.next.value <= value) {
+         curr = curr.next;
+      }
+
+      newNode.next = curr.next;
+      curr.next = newNode;
+   }   
+   public static void deleteDuplicates(LinkedList llist)
+   {
+       ListNode curr = llist.head;
+
+      while (curr != null && curr.next != null) {
+         if (curr.value == curr.next.value) {
+            curr.next = curr.next.next;   
+         }
+         else {
+            curr = curr.next;            
+         }
+      }
+   }
 }
 
 class ListNode
