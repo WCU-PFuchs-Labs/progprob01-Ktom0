@@ -15,6 +15,9 @@ output: head-->1-->2-->3-->null
 
 Please complete the following program to fullfil the function.
 */
+
+import java.util.Scanner;
+
 public class homework20_1
 {
    public static void main(String[] args)
